@@ -1,17 +1,18 @@
 import nodemailer from "nodemailer";
 
 export interface User {
+  _id: string;
   username: string;
   location: string;
   email: string;
   level: string;
 }
 
-export const sendMail = async (user: any) => {
+export const sendMail = async (user: User) => {
   const transporter = nodemailer.createTransport({
-    service: "Gmail",
-    host: "smtp.gmail.com",
-    port: 465,
+    service: process.env.SMTP_SERVICE_PROVIDER,
+    host: process.env.SMTP_HOST,
+    port: (process.env.AUTH_USER_EMAIL_PASS, 10) ?? 465,
     secure: true,
     auth: {
       user: process.env.AUTH_USER_EMAIL,
@@ -23,7 +24,7 @@ export const sendMail = async (user: any) => {
 
   const RECEIVER_EMAIL = user.email;
 
-  const FRONTEND_URL = `${process.env.FRONTEND_URL}?id=${user._id}`;
+  const RESULT_LINK = `${process.env.RESULT_LINK}?id=${user._id}`;
 
   if (!SENDER_EMAIL) {
     throw new Error("Sender's email address not found");
@@ -35,7 +36,7 @@ export const sendMail = async (user: any) => {
     html:
       `<h2>Dear ${user.username}</h2>` +
       `<h3>Please visit the link to check your result:</h3>` +
-      `<p><strong>Click Here:</strong> ${FRONTEND_URL}</p>`,
+      `<p><strong>Click Here:</strong> ${RESULT_LINK}</p>`,
   };
 
   await transporter.sendMail(message);

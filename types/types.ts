@@ -9,16 +9,24 @@ export interface QuestionnaireProps {
   setHide: React.Dispatch<React.SetStateAction<boolean>>;
   setLevel: React.Dispatch<React.SetStateAction<number | null>>;
   level: number | null;
+  questionsList: string[];
+  isLoading: boolean;
 }
-
-export type Question = {
-  question: string;
-  answer: boolean;
-};
 
 export interface UserFormDataProps {
   username: string;
   location: string;
   email: string;
   level: number | string | null;
+}
+
+export interface ContainerProps {
+  className?: string;
+  children: React.ReactNode;
+}
+
+export interface SectionProps {
+  className?: string;
+  children: React.ReactNode;
+  id?: string;
 }

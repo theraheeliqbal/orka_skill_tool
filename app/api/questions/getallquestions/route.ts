@@ -1,13 +1,14 @@
 import { NextResponse } from "next/server";
 import { connectToDataBase } from "@/lib/db";
 
-export const dynamic = "force-dynamic";
+// export const dynamic = "force-dynamic";
 export async function GET() {
   try {
     const db = await connectToDataBase();
 
     const COLLECTION_NAME = "questions";
     const questions = await db?.collection(COLLECTION_NAME).find({}).toArray();
+
     if (!questions || questions.length < 1) {
       return NextResponse.json(
         {
@@ -21,7 +22,7 @@ export async function GET() {
     return NextResponse.json(
       {
         success: true,
-        message: questions,
+        message: questions[0].questions,
       },
       { status: 200 }
     );
