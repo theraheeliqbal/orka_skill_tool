@@ -1,14 +1,6 @@
 import nodemailer from "nodemailer";
 
-export interface User {
-  _id: string;
-  username: string;
-  location: string;
-  email: string;
-  level: string;
-}
-
-export const sendMail = async (user: User) => {
+export const sendMail = async (user: any) => {
   const transporter = nodemailer.createTransport({
     service: process.env.SMTP_SERVICE_PROVIDER,
     host: process.env.SMTP_HOST,
