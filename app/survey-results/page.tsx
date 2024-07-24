@@ -48,7 +48,7 @@ const SurveyResultPage = ({
             href={"/survey"}
             className={`mt-4 px-4 py-2 bg-blue-500 w-32  text-white font-bold rounded `}
           >
-            Test Again
+            Test Again...
           </Link>
         </div>
       </Container>

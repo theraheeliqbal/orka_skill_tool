@@ -2,7 +2,9 @@
 
 import React, { useState } from "react";
 import { QuestionnaireProps } from "@/types/types";
-// import { questions } from "@/content/questions";
+import { questions } from "@/content/questions";
+import { type } from "os";
+import { Console } from "console";
 
 const Questionnaire = ({
   setHide,
@@ -17,11 +19,19 @@ const Questionnaire = ({
   );
 
   const handleAnswerChange = (value: boolean): void => {
+    // RR
+    //answers[currentQuestionIndex] = value;
+    // RR
+
+    console.log("Current Answer: " + answers[currentQuestionIndex]);
+
     setAnswers((prevAnswers) => {
       const newAnswers = [...prevAnswers];
       newAnswers[currentQuestionIndex] = value;
       return newAnswers;
     });
+
+    //console.log("Current Answer: " + answers[currentQuestionIndex]);
   };
 
   const handleNext = (): void => {
@@ -39,7 +49,6 @@ const Questionnaire = ({
 
   const calculateLevel = (): void => {
     const trueCount = answers.filter((answer) => answer === true).length;
-
     // Questions 1-3
     if (currentQuestionIndex == 2) {
       if (
@@ -235,14 +244,14 @@ const Questionnaire = ({
     <div className="flex items-center justify-center py-6 sm:py-8">
       <div>
         <p className="text-base sm:text-3xl text-center mb-5 sm:mb-11">
-          Determine Your Skill Level
+          Determine Your Skill Level:{level}
         </p>
         {isLoading ? (
           <h4 className="text-center font-medium"> Loading ...</h4>
         ) : (
           <div>
             <h2 className="text-xl font-light mb-4 text-center">
-              {questionsList[currentQuestionIndex]}
+              {questions[currentQuestionIndex]}
             </h2>
 
             <div className="mb-4 flex items-center justify-center gap-4">
@@ -270,21 +279,13 @@ const Questionnaire = ({
                       onChange={() => handleAnswerChange(false)}
                       className="form-radio"
                     />
+
                     <span className="ml-2">No</span>
                   </label>
                 </div>
               </div>
             </div>
-            <div className="flex justify-start items-center flex-col gap-5">
-              {currentQuestionIndex != questionsList.length - 1 && (
-                <button
-                  onClick={handleNext}
-                  className="bg-blue-500 text-white px-8 py-2 rounded w-32 disabled:cursor-not-allowed disabled:opacity-50 "
-                  disabled={answers[currentQuestionIndex] === null}
-                >
-                  Next
-                </button>
-              )}
+            <div className="flex justify-center items-center flex-row gap-5">
               {currentQuestionIndex != 0 && (
                 <button
                   onClick={handlePrev}
@@ -294,12 +295,26 @@ const Questionnaire = ({
                   Previous
                 </button>
               )}
-
+              {currentQuestionIndex != questionsList.length - 1 && (
+                <button
+                  onClick={handleNext}
+                  className="bg-blue-500 text-white px-8 py-2 rounded w-32 disabled:cursor-not-allowed disabled:opacity-50 "
+                  disabled={
+                    answers[currentQuestionIndex] === null ||
+                    answers[currentQuestionIndex] === undefined
+                  }
+                >
+                  Next
+                </button>
+              )}
               {currentQuestionIndex === 20 && (
                 <button
                   onClick={calculateLevel}
                   className="bg-green-500 text-white w-32 px-4 py-2 rounded disabled:opacity-50 disabled:cursor-not-allowed"
-                  disabled={answers[currentQuestionIndex] === null}
+                  disabled={
+                    answers[currentQuestionIndex] === null ||
+                    answers[currentQuestionIndex] === undefined
+                  }
                 >
                   Submit
                 </button>

@@ -85,14 +85,25 @@ const UserForm = ({ level, setSuccess, setLevel, success }: UserFormProps) => {
         <p className="text-xs text-red-500">All fields required</p>
         <form onSubmit={handleSubmit} className="space-y-3">
           <InputField
-            label="Username"
-            name="username"
-            placeholder="Enter your username"
+            label="First Name"
+            name="firstName"
+            placeholder="Enter your First Name"
             value={formData.username}
             onChange={handleChange}
             disabled={sending}
             required
           />
+
+          <InputField
+            label="Last Name"
+            name="lastName"
+            placeholder="Enter your Last Name"
+            value={formData.username}
+            onChange={handleChange}
+            disabled={sending}
+            required
+          />
+
           <InputField
             label="Location"
             name="location"

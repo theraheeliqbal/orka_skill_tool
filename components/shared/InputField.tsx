@@ -27,6 +27,7 @@ const InputField = ({
         id={inputID}
         name={name}
         type={type}
+        placeholder={placeholder}
         {...rest}
       />
     </div>
