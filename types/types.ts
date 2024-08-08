@@ -3,6 +3,7 @@ export interface UserFormProps {
   setSuccess: React.Dispatch<React.SetStateAction<boolean>>;
   setLevel: React.Dispatch<React.SetStateAction<number | null>>;
   success: Boolean;
+  surveyAnswers: {}[];
 }
 
 export interface QuestionnaireProps {
@@ -11,13 +12,14 @@ export interface QuestionnaireProps {
   level: number | null;
   questionsList: string[];
   isLoading: boolean;
+  setCurrentIndex: React.Dispatch<React.SetStateAction<number>>;
+  setSurveyAnswers: React.Dispatch<React.SetStateAction<{}>>;
 }
 
 export interface UserFormDataProps {
-  username: string;
-  location: string;
   email: string;
   level: number | string | null;
+  surveyAnswers: {}[];
 }
 
 export interface ContainerProps {
@@ -30,3 +32,8 @@ export interface SectionProps {
   children: React.ReactNode;
   id?: string;
 }
+
+export type CountryType = {
+  value: string;
+  label: string;
+};

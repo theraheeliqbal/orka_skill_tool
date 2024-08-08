@@ -1,0 +1,51 @@
+export const chatList = [
+  {
+    id: 1,
+    name: "Khawar Naeem",
+    message: "PC is still available?",
+    time: "2m",
+    imageUrl: "https://via.placeholder.com/40",
+  },
+  {
+    id: 2,
+    name: "Cricket Experts!",
+    message: "Sent an attachment.",
+    time: "21h",
+    imageUrl: "https://via.placeholder.com/40",
+  },
+  {
+    id: 3,
+    name: "General chat",
+    message: "Need refurbishment info",
+    time: "3d",
+    imageUrl: "https://via.placeholder.com/40",
+  },
+  {
+    id: 4,
+    name: "Abid Hussain",
+    message: "Sent an attachment.",
+    time: "4d",
+    imageUrl: "https://via.placeholder.com/40",
+  },
+  {
+    id: 5,
+    name: "Zulqarnain Haider",
+    message: "Messages are secure",
+    time: "6d",
+    imageUrl: "https://via.placeholder.com/40",
+  },
+  {
+    id: 6,
+    name: "Rang",
+    message: "Shared an Instagram link",
+    time: "6d",
+    imageUrl: "https://via.placeholder.com/40",
+  },
+  {
+    id: 7,
+    name: "Hassan Mirza",
+    message: "Discussion on meeting",
+    time: "6d",
+    imageUrl: "https://via.placeholder.com/40",
+  },
+];

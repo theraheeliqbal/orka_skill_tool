@@ -3,8 +3,6 @@
 import React, { useState } from "react";
 import { QuestionnaireProps } from "@/types/types";
 import { questions } from "@/content/questions";
-import { type } from "os";
-import { Console } from "console";
 
 const Questionnaire = ({
   setHide,
@@ -12,6 +10,8 @@ const Questionnaire = ({
   level,
   questionsList,
   isLoading,
+  setCurrentIndex,
+  setSurveyAnswers,
 }: QuestionnaireProps) => {
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<(null | boolean)[]>(
@@ -19,24 +19,17 @@ const Questionnaire = ({
   );
 
   const handleAnswerChange = (value: boolean): void => {
-    // RR
-    //answers[currentQuestionIndex] = value;
-    // RR
-
-    console.log("Current Answer: " + answers[currentQuestionIndex]);
-
     setAnswers((prevAnswers) => {
       const newAnswers = [...prevAnswers];
       newAnswers[currentQuestionIndex] = value;
       return newAnswers;
     });
-
-    //console.log("Current Answer: " + answers[currentQuestionIndex]);
   };
 
   const handleNext = (): void => {
     if (currentQuestionIndex < questionsList.length - 1) {
       setCurrentQuestionIndex((prevIndex) => prevIndex + 1);
+      setCurrentIndex(currentQuestionIndex + 1);
       calculateLevel();
     }
   };
@@ -44,6 +37,7 @@ const Questionnaire = ({
   const handlePrev = (): void => {
     if (currentQuestionIndex > 0) {
       setCurrentQuestionIndex((prevIndex) => prevIndex - 1);
+      setCurrentIndex(currentQuestionIndex - 1);
     }
   };
 
@@ -58,6 +52,7 @@ const Questionnaire = ({
       ) {
         setLevel(1.0);
         setHide(true);
+        setSurveyAnswers(answers);
       } else if (
         answers[0] === true &&
         answers[1] === false &&
@@ -65,6 +60,7 @@ const Questionnaire = ({
       ) {
         setLevel(1.5);
         setHide(true);
+        setSurveyAnswers(answers);
       } else if (
         answers[0] === true &&
         (answers[1] === true || answers[2] === true)
@@ -83,16 +79,19 @@ const Questionnaire = ({
       if (newTrueCount < 1) {
         setLevel(2.0);
         setHide(true);
+        setSurveyAnswers(answers);
       }
 
       if (newTrueCount == 1) {
         setLevel(2.5);
         setHide(true);
+        setSurveyAnswers(answers);
       }
 
       if (newTrueCount == 2) {
         setLevel(3.0);
         setHide(true);
+        setSurveyAnswers(answers);
       }
 
       if (newTrueCount >= 3) {
@@ -107,6 +106,7 @@ const Questionnaire = ({
       } else {
         setLevel(3.5);
         setHide(true);
+        setSurveyAnswers(answers);
       }
     }
 
@@ -120,11 +120,13 @@ const Questionnaire = ({
       if (newTrueCount < 1) {
         setLevel(3.5);
         setHide(true);
+        setSurveyAnswers(answers);
       }
 
       if (newTrueCount == 1) {
         setLevel(4.0);
         setHide(true);
+        setSurveyAnswers(answers);
       }
 
       if (newTrueCount == 2) {
@@ -147,11 +149,13 @@ const Questionnaire = ({
         if (newTrueCount < 1) {
           setLevel(4.0);
           setHide(true);
+          setSurveyAnswers(answers);
         }
 
         if (newTrueCount == 1) {
           setLevel(4.5);
           setHide(true);
+          setSurveyAnswers(answers);
         }
 
         if (newTrueCount > 1) {
@@ -163,11 +167,13 @@ const Questionnaire = ({
         if (newTrueCount < 1) {
           setLevel(4.5);
           setHide(true);
+          setSurveyAnswers(answers);
         }
 
         if (newTrueCount == 1) {
           setLevel(5.0);
           setHide(true);
+          setSurveyAnswers(answers);
         }
 
         if (newTrueCount > 1) {
@@ -187,10 +193,12 @@ const Questionnaire = ({
         if (newTrueCount < 1) {
           setLevel(4.5);
           setHide(true);
+          setSurveyAnswers(answers);
         }
         if (newTrueCount > 1) {
           setLevel(5.0);
           setHide(true);
+          setSurveyAnswers(answers);
         }
       }
 
@@ -198,10 +206,12 @@ const Questionnaire = ({
         if (newTrueCount < 1) {
           setLevel(5.0);
           setHide(true);
+          setSurveyAnswers(answers);
         }
         if (newTrueCount == 1) {
           setLevel(5.5);
           setHide(true);
+          setSurveyAnswers(answers);
         }
 
         if (newTrueCount > 1) {
@@ -220,11 +230,13 @@ const Questionnaire = ({
       if (newTrueCount < 3) {
         setLevel(5.5);
         setHide(true);
+        setSurveyAnswers(answers);
       }
 
       if (newTrueCount > 2 && newTrueCount < 5) {
         setLevel(6.0);
         setHide(true);
+        setSurveyAnswers(answers);
       }
       if (newTrueCount === 5) {
         setLevel(6.5);
@@ -236,6 +248,7 @@ const Questionnaire = ({
       if (answers[20] === true) {
         setLevel(7.0);
         setHide(true);
+        setSurveyAnswers(answers);
       }
     }
   };
@@ -244,7 +257,7 @@ const Questionnaire = ({
     <div className="flex items-center justify-center py-6 sm:py-8">
       <div>
         <p className="text-base sm:text-3xl text-center mb-5 sm:mb-11">
-          Determine Your Skill Level:{level}
+          Determine Your Skill Level
         </p>
         {isLoading ? (
           <h4 className="text-center font-medium"> Loading ...</h4>

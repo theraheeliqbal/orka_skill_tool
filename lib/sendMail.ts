@@ -4,7 +4,7 @@ export const sendMail = async (user: any) => {
   const transporter = nodemailer.createTransport({
     service: process.env.SMTP_SERVICE_PROVIDER,
     host: process.env.SMTP_HOST,
-    port: (process.env.AUTH_USER_EMAIL_PASS, 10) ?? 465,
+    port: (process.env.AUTH_USER_EMAIL_PASS, 10),
     secure: true,
     auth: {
       user: process.env.AUTH_USER_EMAIL,
@@ -26,7 +26,7 @@ export const sendMail = async (user: any) => {
     to: RECEIVER_EMAIL,
     subject: "Survey Result",
     html:
-      `<h2>Dear ${user.username}</h2>` +
+      `<h2>Dear ${user?.userName}</h2>` +
       `<h3>Please visit the link to check your result:</h3>` +
       `<p><strong>Click Here:</strong> ${RESULT_LINK}</p>`,
   };

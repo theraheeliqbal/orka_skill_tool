@@ -2,78 +2,42 @@
 @tailwind components;
 @tailwind utilities;
 
-/* :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-} */
-
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-} */
-
-*,
-*::before,
-*::after {
+.loader {
+  width: 100px;
+  aspect-ratio: 1;
+  padding: 10px;
   box-sizing: border-box;
+  display: grid;
+  background: #fff;
+  filter: blur(5px) contrast(10) hue-rotate(300deg);
+  mix-blend-mode: darken;
 }
-
-/* Remove default margin */
-* {
-  margin: 0;
-  padding: 0;
-  font: inherit;
+.loader:before,
+.loader:after {
+  content: "";
+  grid-area: 1/1;
+  width: 40px;
+  height: 40px;
+  background: #ffff00;
+  animation: l7 2s infinite;
 }
-
-/* Set core root defaults */
-html {
-  scroll-behavior: smooth;
-  overflow-x: hidden;
+.loader:after {
+  animation-delay: -1s;
 }
-
-html,
-body {
-  height: 100%;
-  /*background-color: #f9f8f5;*/
-}
-
-/* Set core body defaults */
-body {
-  text-rendering: optimizeSpeed;
-  line-height: 1.5;
-}
-
-/* disbale the scroll when sidebar is oppened */
-
-/* A elements that don't have a class get default styles */
-a {
-  text-decoration-skip-ink: auto;
-}
-
-/* Make images easier to work with */
-img,
-picture,
-svg {
-  max-width: 100%;
-  display: block;
+@keyframes l7 {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(100%, 0);
+  }
+  50% {
+    transform: translate(100%, 100%);
+  }
+  75% {
+    transform: translate(0, 100%);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
 }

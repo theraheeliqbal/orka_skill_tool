@@ -1,17 +1,24 @@
 "use client";
 import React, { useState, ChangeEvent } from "react";
 import InputField from "@/components/shared/InputField";
-import { UserFormDataProps, UserFormProps } from "@/types/types";
+import { CountryType, UserFormDataProps, UserFormProps } from "@/types/types";
 
-const UserForm = ({ level, setSuccess, setLevel, success }: UserFormProps) => {
+const UserForm = ({
+  level,
+  setSuccess,
+  setLevel,
+  success,
+  surveyAnswers,
+}: UserFormProps) => {
   const [sending, setSending] = useState<boolean>(false);
+
   const [formData, setFormData] = useState<UserFormDataProps>({
-    username: "",
-    location: "",
     email: "",
     level: level,
+    surveyAnswers: surveyAnswers,
   });
 
+  //  Handles changes to form inputs by updating the state with the new input values except country
   const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -20,26 +27,31 @@ const UserForm = ({ level, setSuccess, setLevel, success }: UserFormProps) => {
     }));
   };
 
+  // Handles changes to add update selected country
+  const setCountry = (country: CountryType) => {
+    setFormData((prev: any) => {
+      return {
+        ...formData,
+        country: country.label,
+      };
+    });
+  };
+
+  // Checks email validity
   const isEmailValid = (email: string): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
 
+  // Makes sure all keys of formData have their respective values
   const isFormValid = (): boolean => {
-    return (
-      formData.username.trim() !== "" &&
-      formData.location.trim() !== "" &&
-      isEmailValid(formData.email)
-    );
+    return isEmailValid(formData.email);
   };
 
+  // Submit form to create a user and sends the result
   const handleSubmit = async (e: React.FormEvent): Promise<void> => {
     e.preventDefault();
-    // if (isFormValid()) {
-    //   alert("Form submitted successfully!");
-    // }
 
-    // setSuccess(true);
     setSending(true);
 
     try {
@@ -61,16 +73,12 @@ const UserForm = ({ level, setSuccess, setLevel, success }: UserFormProps) => {
       setSending(false);
 
       setFormData({
-        username: "",
-        location: "",
         email: "",
         level: "",
+        surveyAnswers: [],
       });
       setLevel(null);
       setSuccess(true);
-      // setTimeout(() => {
-      //   setSuccess(false);
-      // }, 2000);
     } catch (error) {
       console.log("Error", error);
     }
@@ -82,38 +90,8 @@ const UserForm = ({ level, setSuccess, setLevel, success }: UserFormProps) => {
         <p className="text-base sm:text-3xl text-center mb-5 sm:mb-11">
           Fill form to get result
         </p>
-        <p className="text-xs text-red-500">All fields required</p>
+        <p className="text-xs text-red-500">Email is required</p>
         <form onSubmit={handleSubmit} className="space-y-3">
-          <InputField
-            label="First Name"
-            name="firstName"
-            placeholder="Enter your First Name"
-            value={formData.username}
-            onChange={handleChange}
-            disabled={sending}
-            required
-          />
-
-          <InputField
-            label="Last Name"
-            name="lastName"
-            placeholder="Enter your Last Name"
-            value={formData.username}
-            onChange={handleChange}
-            disabled={sending}
-            required
-          />
-
-          <InputField
-            label="Location"
-            name="location"
-            type="text"
-            placeholder="Enter your location"
-            value={formData.location}
-            onChange={handleChange}
-            disabled={sending}
-            required
-          />
           <InputField
             label="Email"
             name="email"
