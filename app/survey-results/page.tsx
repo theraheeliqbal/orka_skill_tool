@@ -15,7 +15,7 @@ const SurveyResultPage = ({
   const { data, isLoading, error } = fetchUserWithID(id);
 
   return (
-    <Section className="w-full min-h-screen">
+    <Section className="w-full min-h-[80vh]">
       <Container>
         {isLoading && (
           <div className="py-8 sm:py-16">
