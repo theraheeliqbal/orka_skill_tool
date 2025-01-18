@@ -19,7 +19,7 @@ export default function Home() {
   return (
     <div className="">
       {isLoading ? (
-        <div className="w-full h-[90vh] flex items-center justify-center">
+        <div className="w-full h-[90vh] flex flex-col md:flex-row sm:flex-row items-center justify-center">
           <div className="loader"></div>
         </div>
       ) : (
@@ -29,7 +29,6 @@ export default function Home() {
             imageUrl={data[currentIndex].image}
             hide={hide}
           />
-
           <QuestionnaireSection
             hide={hide}
             setHide={setHide}
