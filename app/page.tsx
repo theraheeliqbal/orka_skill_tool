@@ -1,6 +1,7 @@
 import Image from "next/image";
 import HomePageHeader from "@/components/homepage/HomePageHeader";
 import HomePageFooter from "@/components/homepage/HomePageFooter";
+import Header from "@/components/common/Header";
 
 export default function Home() {
   return (

@@ -12,12 +12,20 @@ const config = {
   theme: {
     container: {
       center: true,
-      padding: "2rem",
+      padding: "15px",
       screens: {
-        "2xl": "1400px",
+        sm: "640px",
+        md: "768px",
+        lg: "1140px",
       },
     },
     extend: {
+      fontFamily: {
+        inter: "var(--font-inter)",
+        openSans: "var(--font-open-sans)",
+        raleway: "var(--font-raleway-sans)",
+      },
+
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -55,11 +63,13 @@ const config = {
           foreground: "hsl(var(--card-foreground))",
         },
       },
+
       borderRadius: {
         lg: "var(--radius)",
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
@@ -70,6 +80,7 @@ const config = {
           to: { height: "0" },
         },
       },
+
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
