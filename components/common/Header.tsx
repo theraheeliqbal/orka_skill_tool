@@ -1,9 +1,9 @@
 'use client'
-import { usePathname, useRouter } from 'next/navigation';
-import React, { useEffect, useState } from 'react';
-import Link from 'next/link';
-import { Menu } from 'lucide-react';
 import { headerLinks } from '@/constants';
+import { Menu } from 'lucide-react';
+import Link from 'next/link';
+import { usePathname, useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 
 export const Header = () => {
@@ -45,11 +45,11 @@ export const Header = () => {
 
             {/* Navigation Links */}
             <div className='navbar-collapse'>
-              <div className="navbar-nav ml-[250px]">
+              <div className="navbar-nav ml-[10px]">
                 {headerLinks.map((headerLink) => {
                   const { text, url } = headerLink;
                   return (
-                    <Link className={`nav-link ${pathname === url ? "active" : ""}`} href={url}>
+                    <Link key={text} className={`nav-link ${pathname === url ? "active" : ""}`} href={url}>
                       {text}
                     </Link>
                   )
@@ -59,7 +59,7 @@ export const Header = () => {
               {/* Hamburger Menu for Mobile */}
               <button
                 id="sidemenu_toggle"
-                className=" flex flex-col space-y-1 focus:outline-none hidden"
+                className="flex-col space-y-1 focus:outline-none hidden"
               >
                 <Menu />
               </button>

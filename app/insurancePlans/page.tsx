@@ -8,7 +8,8 @@ export default function InsurancePage() {
   return (
     <>
       <TopBanner notHome bannerImage="https://megaone.acrothemes.com/insurance/img/plan-cover.jpg" title="Insurance Plans" subTitle="We Give The Best And Reasonable Pricing Plans" />
-      <section className="bg-[#f9f8fa] relative py-[7.5rem]">
+
+      <section className="bg-[#f9f8fa] relative py-[2.5rem] md:py-[7.5rem]">
         <div className="container text-center">
           <h4 className="text-center">Most Economical Pricing</h4>
           <h2>Our Best Pricing</h2>
@@ -17,12 +18,12 @@ export default function InsurancePage() {
             <p className="about-max pt-[10px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce nisi enim, vulputate at justo tristique, tempor sagittis dolor. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec sit amet ligula consequat urna posuere convallis.</p>
           </div>
 
-          <div className="flex gap-[30px]">
+          <div className="flex md:flex-row flex-col gap-[30px] justify-center">
             {insurancePackagePlans.map((insurancePackagePlan) => {
               const { title, price, description, currency, duration, benefits, btnClasses } = insurancePackagePlan;
               return (
-                <div className="w-1/3" key={title}>
-                  <div className="price-item text-left">
+                <div className="w-3/3 md:w-1/3" key={title}>
+                  <div className="price-item text-left mt-[10px] md:mx-0 mx-auto md:mt-[80px]">
                     <h3 className="text-[#2c3459] d-inline-block font-weight-600 mb-4 blue text-capitalize">{title}</h3>
 
                     <div className="price-tag flex items-center">

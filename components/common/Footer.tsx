@@ -19,7 +19,7 @@ const Footer = () => {
                   data-aos="fade-up"
                   className="transition-transform transform hover:scale-110 cursor-pointer"
                 >
-                  <a href="javascript:void(0);" aria-label="Facebook">
+                  <a aria-label="Facebook">
                     <FontAwesomeIcon icon={faFacebookF} className="fa-fw" />
                   </a>
                 </li>
@@ -28,7 +28,7 @@ const Footer = () => {
                   data-aos="fade-down"
                   className="transition-transform transform hover:scale-110 cursor-pointer"
                 >
-                  <a href="javascript:void(0);" aria-label="Twitter">
+                  <a aria-label="Twitter">
                     <FontAwesomeIcon icon={faXTwitter} className="fa-fw" />
                   </a>
                 </li>
@@ -37,7 +37,7 @@ const Footer = () => {
                   data-aos="fade-up"
                   className="transition-transform transform hover:scale-110 cursor-pointer"
                 >
-                  <a href="javascript:void(0);" aria-label="Google">
+                  <a aria-label="Google">
                     <FontAwesomeIcon icon={faGoogle} className="fa-fw" />
                   </a>
                 </li>
@@ -46,7 +46,7 @@ const Footer = () => {
                   data-aos="fade-down"
                   className="transition-transform transform hover:scale-110 cursor-pointer"
                 >
-                  <a href="javascript:void(0);" aria-label="LinkedIn">
+                  <a aria-label="LinkedIn">
                     <FontAwesomeIcon icon={faLinkedinIn} className="fa-fw" />                </a>
                 </li>
                 {/* Instagram */}
@@ -54,7 +54,7 @@ const Footer = () => {
                   data-aos="fade-up"
                   className="transition-transform transform hover:scale-110 cursor-pointer"
                 >
-                  <a href="javascript:void(0);" aria-label="Instagram">
+                  <a aria-label="Instagram">
                     <FontAwesomeIcon icon={faInstagram} className="fa-fw" />
                   </a>
                 </li>
@@ -63,7 +63,7 @@ const Footer = () => {
                   data-aos="fade-down"
                   className="transition-transform transform hover:scale-110 cursor-pointer"
                 >
-                  <a href="javascript:void(0);" aria-label="Mail">
+                  <a aria-label="Mail">
                     <FontAwesomeIcon icon={faEnvelope} className="fa-fw" />
                   </a>
                 </li>
@@ -76,7 +76,7 @@ const Footer = () => {
               className="text-white text-sm capitalize mt-4"
             >
               © 2020 Megaone. Made With Love By{' '}
-              <a href="javascript:void(0);" className="text-white underline">
+              <a className="text-white underline">
                 Themesindustry
               </a>
             </p>

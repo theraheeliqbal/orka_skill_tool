@@ -11,14 +11,14 @@ const ContactForm = () => {
 
         <div className='max-w-[780px] mx-auto'>
           <form className='contact-form' id='contact-form-data'>
-            <div className='flex'>
-              <div className='w-1/2 px-[10px]'>
+            <div className='flex md:flex-row flex-col'>
+              <div className='md:w-1/2 px-[10px]'>
                 <div className="form-group">
-                  <input className="form-control" type="text" placeholder="Last Name:" required id="last_name" name="lastName" />
+                  <input className="form-control" type="text" placeholder="First Name:" required id="firstName" name="firstName" />
                 </div>
               </div>
 
-              <div className='w-1/2 px-[10px]'>
+              <div className='md:w-1/2 px-[10px]'>
                 <div className="form-group">
                   <input className="form-control" type="text" placeholder="Last Name:" required id="last_name" name="lastName" />
                 </div>
@@ -26,13 +26,13 @@ const ContactForm = () => {
             </div>
 
             <div className='flex'>
-              <div className='w-1/2 px-[10px]'>
+              <div className='md:w-1/2 px-[10px]'>
                 <div className="form-group">
                   <input className="form-control" type="text" placeholder="Last Name:" required id="last_name" name="lastName" />
                 </div>
               </div>
 
-              <div className='w-1/2 px-[10px]'>
+              <div className='md:w-1/2 px-[10px]'>
                 <div className="form-group">
                   <input className="form-control" type="text" placeholder="Last Name:" required id="last_name" name="lastName" />
                 </div>
@@ -41,7 +41,7 @@ const ContactForm = () => {
 
             <div>
               <div className="form-group">
-                <textarea className="form-control" rows={5} placeholder="Message" id="message" name="userMessage"></textarea>
+                <textarea className="form-control" placeholder="Message" id="message" name="userMessage"></textarea>
               </div>
             </div>
           </form>

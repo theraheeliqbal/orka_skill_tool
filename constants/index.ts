@@ -8,16 +8,16 @@ export const headerLinks = [
     url: "/aboutUs",
   },
   {
-    text: "Contact Us",
-    url: "/contactUs",
+    text: "Insurance Plans",
+    url: "/insurancePlans",
   },
   {
     text: "Latest News",
     url: "/latestNews",
   },
   {
-    text: "Insurance Plans",
-    url: "/insurancePlans",
+    text: "Contact Us",
+    url: "/contactUs",
   },
 ];
 
