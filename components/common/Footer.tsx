@@ -47,7 +47,8 @@ const Footer = () => {
                   className="transition-transform transform hover:scale-110 cursor-pointer"
                 >
                   <a aria-label="LinkedIn">
-                    <FontAwesomeIcon icon={faLinkedinIn} className="fa-fw" />                </a>
+                    <FontAwesomeIcon icon={faLinkedinIn} className="fa-fw" />
+                  </a>
                 </li>
                 {/* Instagram */}
                 <li
