@@ -19,7 +19,7 @@ const BlogSection = () => {
   ];
 
   return (
-    <div className=' bg-[white] py-[7.5rem] relative'>
+    <div className=' bg-[white] py-[3.5rem] md:py-[7.5rem] relative'>
       <div className='container'>
 
         <div className="flex flex-col md:flex-row">

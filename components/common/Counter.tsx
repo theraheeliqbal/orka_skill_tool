@@ -9,7 +9,7 @@ const CounterSection = () => {
   ];
 
   return (
-    <section className="bg-[#f9f8fa] relative py-[7.5rem]">
+    <section className="bg-[#f9f8fa] relative py-[3.5rem] md:py-[7.5rem]">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           {counters.map((counter, index) => (

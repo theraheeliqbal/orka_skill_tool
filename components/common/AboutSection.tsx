@@ -4,7 +4,7 @@ import { faBook, faChartBar, faBriefcase } from '@fortawesome/free-solid-svg-ico
 
 const AboutSection = () => {
   return (
-    <section className="bg-white py-[7.5rem]" id="about">
+    <section className="bg-white py-[3.5rem] md:py-[7.5rem]" id="about">
       <div className="container mx-auto text-center">
         <h4>Lorem ipsum dolor sit amet</h4>
         <h2>MegaOne Insurance</h2>

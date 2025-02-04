@@ -9,7 +9,7 @@ export default function InsurancePage() {
     <>
       <TopBanner notHome bannerImage="https://megaone.acrothemes.com/insurance/img/plan-cover.jpg" title="Insurance Plans" subTitle="We Give The Best And Reasonable Pricing Plans" />
 
-      <section className="bg-[#f9f8fa] relative py-[2.5rem] md:py-[7.5rem]">
+      <section className="bg-[#f9f8fa] relative py-[3.5rem] md:py-[7.5rem]">
         <div className="container text-center">
           <h4 className="text-center">Most Economical Pricing</h4>
           <h2>Our Best Pricing</h2>

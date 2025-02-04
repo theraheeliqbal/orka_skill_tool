@@ -434,6 +434,15 @@ a:hover {
   visibility: visible;
 }
 
+.mySwiper1 .swiper-pagination {
+  position: relative !important;
+  margin-top: 20px; /* Moves dots below */
+}
+
+.mySwiper1 .swiper-pagination .swiper-pagination-bullet {
+  background-color: #99d747 !important;
+}
+
 .page_nav {
   text-align: center;
   font-size: 13px;

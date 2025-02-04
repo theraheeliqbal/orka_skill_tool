@@ -4,7 +4,7 @@ import React from 'react'
 
 const MarketingSection = () => {
   return (
-    <section className='bg-[#f9f8fa] py-[7.5rem]'>
+    <section className='bg-[#f9f8fa] py-[3.5rem] md:py-[7.5rem]'>
       <div className='container'>
         <div className="flex flex-col md:flex-row">
           {/* Left Content */}

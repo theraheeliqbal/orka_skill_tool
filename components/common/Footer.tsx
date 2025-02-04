@@ -9,7 +9,7 @@ const Footer = () => {
     <section className="text-center bg-blue !mt-0">
       <h2 className="sr-only">Footer</h2>
       <div className="container mx-auto">
-        <div className='py-[7.5rem]'>
+        <div className='py-[3.5rem] md:py-[7.5rem]'>
           <div className="flex flex-col items-center">
             {/* Social Icons */}
             <div className="footer-social">

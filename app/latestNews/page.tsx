@@ -10,7 +10,7 @@ export default function LatestNewsPage() {
     <>
       <TopBanner notHome bannerImage="https://megaone.acrothemes.com/insurance/img/news-cover.jpg" title="Latest News" subTitle="Do U Need Life Insurance When U Retire" />
 
-      <section className='py-[7.5rem] bg-white'>
+      <section className='py-[3.5rem] md:py-[7.5rem] bg-white'>
         <div className='container'>
           <div className='flex px-[15px] flex-col lg:flex-row'>
             <div className='w-6/6 lg:w-4/6 '>
