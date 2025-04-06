@@ -254,88 +254,109 @@ const Questionnaire = ({
   };
 
   return (
-    <div className="flex items-center justify-center py-6 sm:py-8">
-      <div>
-        <p className="text-base sm:text-3xl text-center mb-5 sm:mb-11">
-          Determine Your Skill Level
-        </p>
-        {isLoading ? (
-          <h4 className="text-center font-medium"> Loading ...</h4>
-        ) : (
-          <div>
-            <h2 className="text-xl font-light mb-4 text-center">
-              {questions[currentQuestionIndex]}
-            </h2>
+    <div className="">
+      {isLoading ? (
+        <h4 className="text-center font-medium"> Loading ...</h4>
+      ) : (
+        <div>
+          <div className='container'>
+            <div className="flex flex-col md:flex-row">
+              {/* Left Content */}
+              <div className="w-2/2 md:w-1/2">
+                <div className='pr-[4rem]'>
+                  <div className='rare-box'></div>
+                  <img src="/about.jpg" className="image-about relative w-[100%]" alt="" />
+                </div>
+              </div>
 
-            <div className="mb-4 flex items-center justify-center gap-4">
-              <div className="space-y-3">
-                <div>
-                  <label className="inline-flex items-center mr-4 cursor-pointer">
+              {/*Right Content */}
+              <div className="w-2/2 md:w-1/2">
+                <h5 className="pb-3 sm-pt-3 text-capitalize">Lorem ipsum dolor sit amet consectetur</h5>
+
+                <h2 className="text-[42px]" data-wow-delay="400ms">{questions[currentQuestionIndex]}</h2>
+
+
+                <p className="pt-[14px] text-[#9da0b2] about-p mb-[20px]">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed augue diam, accumsan vitae justo non, euismod aliquam lectus.
+                  Etiam elementum tortor quis risus posuere, in cursus arcu lobortis.
+                </p>
+
+                <div className="mb-4 flex items-center gap-[20px] bg-white px-[20px] py-[30px]">
+                  <div className="flex-1">
                     <input
+                      id="yes"
                       type="radio"
                       name="answer"
                       value="true"
                       checked={answers[currentQuestionIndex] === true}
                       onChange={() => handleAnswerChange(true)}
-                      className="form-radio"
+                      className="custom-radio"
                     />
-                    <span className="ml-2">Yes</span>
-                  </label>
-                </div>
-                <div>
-                  <label className="inline-flex cursor-pointer items-center">
+
+                    <label htmlFor="yes" className="mx-auto">
+                      <span>Yes</span>
+                    </label>
+                  </div>
+
+                  <div className="flex-1">
                     <input
+                      id="no"
                       type="radio"
                       name="answer"
                       value="false"
                       checked={answers[currentQuestionIndex] === false}
                       onChange={() => handleAnswerChange(false)}
-                      className="form-radio"
+                      className="custom-radio"
                     />
 
-                    <span className="ml-2">No</span>
-                  </label>
+                    <label htmlFor="no" className="mx-auto">
+                      <span>No</span>
+                    </label>
+                  </div>
+                </div>
+
+
+                <div className="flex items-center flex-row gap-5 mt-10">
+                  {currentQuestionIndex != 0 && (
+                    <button
+                      onClick={handlePrev}
+                      disabled={currentQuestionIndex === 0}
+                      className="btn !rounded-[50px]  w-32 btn-large btn-green text-capitalize disabled:opacity-50 disabled:cursor-not-allowed"
+                    >
+                      Previous
+                    </button>
+                  )}
+
+                  {currentQuestionIndex != questionsList.length - 1 && (
+                    <button
+                      onClick={handleNext}
+                      className="btn !rounded-[50px] w-32 btn-large btn-green text-capitalize disabled:cursor-not-allowed disabled:opacity-50 "
+                      disabled={
+                        answers[currentQuestionIndex] === null ||
+                        answers[currentQuestionIndex] === undefined
+                      }
+                    >
+                      Next
+                    </button>
+                  )}
+
+                  {currentQuestionIndex === 20 && (
+                    <button
+                      onClick={calculateLevel}
+                      className="btn !rounded-[50px] w-32 btn-large btn-green text-capitalize disabled:opacity-50 disabled:cursor-not-allowed"
+                      disabled={
+                        answers[currentQuestionIndex] === null ||
+                        answers[currentQuestionIndex] === undefined
+                      }
+                    >
+                      Submit
+                    </button>
+                  )}
                 </div>
               </div>
             </div>
-            <div className="flex justify-center items-center flex-row gap-5">
-              {currentQuestionIndex != 0 && (
-                <button
-                  onClick={handlePrev}
-                  disabled={currentQuestionIndex === 0}
-                  className="bg-blue-500 text-white w-32 px-8 py-2 rounded disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  Previous
-                </button>
-              )}
-              {currentQuestionIndex != questionsList.length - 1 && (
-                <button
-                  onClick={handleNext}
-                  className="bg-blue-500 text-white px-8 py-2 rounded w-32 disabled:cursor-not-allowed disabled:opacity-50 "
-                  disabled={
-                    answers[currentQuestionIndex] === null ||
-                    answers[currentQuestionIndex] === undefined
-                  }
-                >
-                  Next
-                </button>
-              )}
-              {currentQuestionIndex === 20 && (
-                <button
-                  onClick={calculateLevel}
-                  className="bg-green-500 text-white w-32 px-4 py-2 rounded disabled:opacity-50 disabled:cursor-not-allowed"
-                  disabled={
-                    answers[currentQuestionIndex] === null ||
-                    answers[currentQuestionIndex] === undefined
-                  }
-                >
-                  Submit
-                </button>
-              )}
-            </div>
           </div>
-        )}
-      </div>
+        </div>
+      )}
     </div>
   );
 };

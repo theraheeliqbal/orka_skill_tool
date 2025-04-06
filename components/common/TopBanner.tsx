@@ -3,6 +3,8 @@ import { faAngleDoubleRight } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { FC } from 'react';
 
+
+
 const TopBanner: FC<TopBannerInterface> = ({ notHome, bannerImage, title, subTitle }) => {
   return (
     <section className="relative pb-0 pt-[100px]">

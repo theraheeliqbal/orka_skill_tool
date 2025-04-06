@@ -31,8 +31,6 @@ export const Header = () => {
     };
   }, []);
 
-  console.log('pathname', pathname)
-
   return (
     <header className={`cursor-light ${isScrolled ? 'header-appear' : ''}`}>
       <nav className="navbar navbar-top-default nav-radius navbar-expand-lg">
@@ -53,7 +51,7 @@ export const Header = () => {
                 {headerLinks.map((headerLink) => {
                   const { text, url } = headerLink;
                   return (
-                    <Link key={text} className={`nav-link ${pathname === url ? "active" : ""}`} href={url}>
+                    <Link key={text} className={`nav-link ${pathname === '/homePage' && !isScrolled ? 'text-white' : ''} ${pathname === url ? "active" : ""}`} href={url}>
                       {text}
                     </Link>
                   )
@@ -67,7 +65,7 @@ export const Header = () => {
               onClick={() => setIsOpen(true)}
               className="flex-col space-y-1 focus:outline-none inline-block md:hidden"
             >
-              <Menu />
+              <Menu color={isScrolled ? 'black' : 'white'} />
             </button>
 
             {isOpen && <div className='sidebar-shadow' />}

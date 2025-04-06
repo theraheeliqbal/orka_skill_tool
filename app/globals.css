@@ -228,6 +228,10 @@ a:hover {
   display: inline-block;
 }
 
+.navbar-top-default .navbar-nav .nav-link.text-white {
+  color: white;
+}
+
 .nav-radius .navbar-nav .nav-link {
   padding: 0.6rem 1.3rem;
   border-radius: 36px;
@@ -927,4 +931,231 @@ ul.social_icon li,
   z-index: 1;
   overflow: hidden;
   transition: background-color 0.5s ease;
+}
+
+.custom-radio {
+  position: absolute;
+  left: -9999px;
+}
+
+.custom-label {
+  display: inline-flex;
+  align-items: center;
+  width: 180px;
+  background: #99d747;
+  padding: 10px 15px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+.custom-label span {
+  margin-left: 10px;
+  font-size: 14px;
+}
+.custom-label:before {
+  content: "";
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  border: 1px solid #ddd;
+  border-radius: 100%;
+  background: #fff;
+}
+.custom-radio:checked + span:before {
+  background: #f87da9;
+}
+
+/* styles/globals.css or as a CSS module */
+
+.hero-section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero-slide {
+  outline: none;
+}
+
+/* Customize slick dots */
+.slick-dots {
+  bottom: 20px;
+}
+
+.slick-dots li button:before {
+  color: white;
+  opacity: 0.5;
+  font-size: 10px;
+}
+
+.slick-dots li.slick-active button:before {
+  color: white;
+  opacity: 1;
+}
+
+/* Customize slick arrows */
+.slick-prev,
+.slick-next {
+  z-index: 10;
+  width: 40px;
+  height: 40px;
+}
+
+.slick-prev {
+  left: 20px;
+}
+
+.slick-next {
+  right: 20px;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  font-size: 40px;
+}
+
+.hero-section .slick-dots {
+  bottom: unset;
+  top: 50%;
+  transform: translateY(-50%);
+  width: auto;
+  right: 20px;
+  display: flex !important;
+  flex-direction: column;
+  align-items: center;
+}
+
+.hero-section .slick-dots li {
+  width: 17px;
+  height: 17px;
+}
+
+.hero-section .slick-dots li {
+  border-radius: 50%;
+  border: 3px solid white;
+  margin-bottom: 18px;
+}
+
+.hero-section .slick-dots li:last-child {
+  margin-bottom: 0;
+}
+
+.hero-section .slick-dots li.slick-active {
+  background-color: green;
+  width: 22px;
+  height: 22px;
+}
+
+.hero-section .slick-dots li:not(:last-child) button:before {
+  font-size: unset;
+  background-color: white;
+  line-height: 20px;
+  position: absolute;
+  top: 14px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 20px;
+  content: "•";
+  text-align: center;
+  opacity: 1;
+  z-index: -1;
+}
+
+.hero-section .slick-dots li.slick-active button:before {
+  height: 23px;
+}
+
+.hero-section .slick-dots li:last-child button:before {
+  display: none;
+}
+
+[type="radio"]:checked,
+[type="radio"]:not(:checked) {
+  position: absolute;
+  left: -9999px;
+}
+
+[type="radio"]:checked + label,
+[type="radio"]:not(:checked) + label {
+  position: relative;
+  width: 200px;
+  display: block;
+  padding: 10px 13px;
+  border-radius: 50px;
+  cursor: pointer;
+  border: 1px solid;
+  text-align: center;
+}
+
+[type="radio"]:checked + label {
+  background-color: #a7f3d0;
+  border-color: #34d399;
+}
+
+[type="radio"]:not(:checked) + label {
+  background-color: #f9fafb;
+  border-color: #eaecef;
+}
+
+[type="radio"]:checked + label > span,
+[type="radio"]:not(:checked) + label > span {
+  position: relative;
+  cursor: pointer;
+  line-height: 20px;
+  display: inline-block;
+  color: #666;
+  width: 100%;
+}
+
+[type="radio"]:checked + label > span:before,
+[type="radio"]:not(:checked) + label > span:before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 22px;
+  height: 22px;
+  border: 1px solid #ddd;
+  border-radius: 100%;
+  background: #fff;
+}
+
+[type="radio"]:checked + label > span:before {
+  border-color: #7faf3e;
+}
+
+[type="radio"]:not(:checked) + label > span:before {
+  display: none;
+}
+
+[type="radio"]:checked + label > span:after,
+[type="radio"]:not(:checked) + label > span:after {
+  content: "";
+  width: 16px;
+  height: 16px;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  border-radius: 100%;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+[type="radio"]:not(:checked) + label > span:after {
+  background-color: #e5e7eb;
+  border: 1px solid #dee0e5;
+}
+
+[type="radio"]:checked + label > span:after {
+  background-color: #34d399;
+}
+
+[type="radio"]:not(:checked) + label > span:after,
+[type="radio"]:checked + label > span:after {
+  opacity: 1;
+  -webkit-transform: scale(1);
+  transform: scale(1);
 }

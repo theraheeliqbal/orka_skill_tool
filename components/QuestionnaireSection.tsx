@@ -33,45 +33,43 @@ const QuestionnaireSection: React.FC<QuestionnaireSectionProps> = ({
   surveyAnswers,
 }) => {
   return (
-    <Section className="flex justify-center items-center md:py-5">
-      <Container className="flex items-center justify-center w-[900px]">
-        <div className="w-full h-full flex items-center justify-center">
-          {!hide && (
-            <Questionnaire
-              setHide={setHide}
-              setLevel={setLevel}
+    <>
+      <div className="w-full h-full flex items-center justify-center">
+        {!hide && (
+          <Questionnaire
+            setHide={setHide}
+            setLevel={setLevel}
+            level={level}
+            questionsList={questionsList}
+            isLoading={isLoading}
+            setCurrentIndex={setCurrentIndex}
+            setSurveyAnswers={setSurveyAnswers}
+          />
+        )}
+
+        <div className="pb-10">
+          {hide && !success && (
+            <UserForm
               level={level}
-              questionsList={questionsList}
-              isLoading={isLoading}
-              setCurrentIndex={setCurrentIndex}
-              setSurveyAnswers={setSurveyAnswers}
+              setSuccess={setSuccess}
+              success={success}
+              setLevel={setLevel}
+              surveyAnswers={surveyAnswers}
             />
           )}
 
-          <div className="pb-10">
-            {hide && !success && (
-              <UserForm
-                level={level}
-                setSuccess={setSuccess}
-                success={success}
-                setLevel={setLevel}
-                surveyAnswers={surveyAnswers}
-              />
-            )}
-
-            {hide && (
-              <SuccessMessage
-                success={success}
-                setHide={setHide}
-                setLevel={setLevel}
-                setSuccess={setSuccess}
-                setCurrentIndex={setCurrentIndex}
-              />
-            )}
-          </div>
+          {hide && (
+            <SuccessMessage
+              success={success}
+              setHide={setHide}
+              setLevel={setLevel}
+              setSuccess={setSuccess}
+              setCurrentIndex={setCurrentIndex}
+            />
+          )}
         </div>
-      </Container>
-    </Section>
+      </div>
+    </>
   );
 };
 
