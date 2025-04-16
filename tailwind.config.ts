@@ -24,6 +24,7 @@ const config = {
         inter: "var(--font-inter)",
         openSans: "var(--font-open-sans)",
         raleway: "var(--font-raleway-sans)",
+        oswald: "var(--font-oswald)",
       },
 
       colors: {

@@ -32,8 +32,8 @@ export const Header = () => {
   }, []);
 
   return (
-    <header className={`cursor-light ${isScrolled ? 'header-appear' : ''}`}>
-      <nav className="navbar navbar-top-default nav-radius navbar-expand-lg">
+    <header className={`cursor-light `}>
+      <nav className={`navbar navbar-top-default nav-radius navbar-expand-lg ${isScrolled ? 'header-appear' : ''}`}>
         <div className="container mx-auto">
           <div className='flex justify-between'>
             {/* Logo */}

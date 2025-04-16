@@ -12,8 +12,8 @@ export const headerLinks = [
     url: "/insurancePlans",
   },
   {
-    text: "Latest News",
-    url: "/latestNews",
+    text: "Padel Orkano",
+    url: "/padelOrkano",
   },
   {
     text: "Contact Us",
@@ -73,4 +73,12 @@ export const insurancePackagePlans = [
     btnClasses:
       "btn btn-large btn-green-orange !rounded-[50px] text-capitalize",
   },
+];
+
+export const benefits = [
+  "Full access",
+  "Unlimited Bandwidth",
+  "Powerful Admin Panel",
+  "Email Accounts",
+  "8 Free Forks Every Months",
 ];

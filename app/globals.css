@@ -195,23 +195,21 @@ a:hover {
 }
 
 .navbar-top-default {
-  position: absolute;
+  position: fixed;
   top: 0;
+  left: 0;
   z-index: 99;
-  overflow: hidden;
   height: 90px;
   width: 100%;
-  transition: all 0.1s ease;
+  transform: translateY(0);
+  background-color: transparent;
+  box-shadow: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease,
+    transform 0.3s ease;
 }
 
-.header-appear .navbar-top-default {
-  height: 80px;
-  position: fixed;
-  z-index: 999;
-  background: #fff;
-  animation-name: animationFade;
-  animation-duration: 1s;
-  animation-fill-mode: both;
+.navbar-top-default.header-appear {
+  background-color: #fff;
   box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.35);
 }
 
@@ -271,6 +269,10 @@ a:hover {
   background-color: #2c3459;
   opacity: 0.5;
   z-index: 1;
+}
+
+.top-banner-cover.no-after::after {
+  display: none;
 }
 
 .bg-blue {
@@ -472,6 +474,10 @@ a:hover {
 
 .orange {
   color: #e25111;
+}
+
+.blue {
+  color: #2c3459;
 }
 
 ul.left-about li {

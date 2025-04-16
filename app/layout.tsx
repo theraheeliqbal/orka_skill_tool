@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Open_Sans } from "next/font/google";
+import { Oswald } from 'next/font/google';
 import { Raleway } from "next/font/google";
 
 import "./globals.css";
@@ -13,6 +14,12 @@ config.autoAddCss = false
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-inter',
+  weight: ['400', '500', '600', '700'] // Array for multiple weights
+});
+
+const oswald = Oswald({
+  subsets: ['latin'],
+  variable: '--font-oswald',
   weight: ['400', '500', '600', '700'] // Array for multiple weights
 });
 
@@ -42,7 +49,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body lang="en"
-        className={`${inter.variable} ${openSans.variable} ${raleway.variable}`}>{children}</body>
+        className={`${inter.variable} ${openSans.variable} ${raleway.variable} ${oswald.variable}`}>{children}</body>
     </html>
   );
 }

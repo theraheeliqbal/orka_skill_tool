@@ -64,7 +64,6 @@ const AboutSection = () => {
             We Offer Different Services
           </h3>
         </div>
-
       </div>
     </section>
   );

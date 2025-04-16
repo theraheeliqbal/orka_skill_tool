@@ -12,19 +12,18 @@ const HeroSlider = () => {
     speed: 1000,
     slidesToShow: 1,
     slidesToScroll: 1,
-    autoplay: false,
+    autoplay: true,
     autoplaySpeed: 7000,
     pauseOnHover: false,
     arrows: false,
-    fade: true // 👈 adds crossfade transition
+    fade: true
   };
 
-  // Array of video data
   const videos = [
     {
       id: 1,
       src: "/videos/hero-video-2.mp4",
-      title: "First Slide",
+      title: "First Slide Description for the first ",
       description: "Description for the first video slide"
     },
     {
@@ -62,11 +61,13 @@ const HeroSlider = () => {
               <div className="overlay absolute inset-0 z-10 bg-black bg-opacity-60 flex flex-col justify-center items-center text-white p-8" />
 
               <div className="container absolute inset-0 z-20 flex flex-col justify-center items-start text-white p-8">
-                <p className="text-[16px] text-white mb-8 font-medium ">The Most latest</p>
+                <p className="text-[16px] text-white mb-[20px] font-medium ">The Most latest</p>
 
-                <h2 className="text-4xl font-bold mb-10 text-white !text-[80px]">{video.title}</h2>
+                <div className='max-w-[600px]'>
+                  <h2 className=" font-bold mb-[10px] text-white !text-[60px] leading-none">{video.title}</h2>
 
-                <p className="text-2xl mb-8 text-white text-[18px]">{video.description}</p>
+                  <p className="text-2xl mb-8 text-white text-[18px] leading-none">{video.description}</p>
+                </div>
               </div>
             </div>
           </div>
